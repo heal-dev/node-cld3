@@ -9,7 +9,7 @@ const root = path.join(__dirname, '..');
 const cld3Path = path.join(root, 'cld3');
 
 execSync('rm -rf cld3', { cwd: root });
-execSync('git clone https://github.com/google/cld3.git', { cwd: root });
+execSync('git clone https://github.com/Aschen/cld3.git', { cwd: root });
 execSync('rm -rf cld3/.git', { cwd: root });
 execSync('mkdir -p build', { cwd: cld3Path });
 execSync('cmake -S . -B ./build', { cwd: cld3Path });
