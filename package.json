@@ -1,0 +1,19 @@
+{
+  "name": "node-cld3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "install": "npm run setup && npm run rebuild",
+    "rebuild": "cmake-js rebuild",
+    "test": "node --test"
+  },
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "cmake-js": "^7.2.1",
+    "node-addon-api": "^6.0.0"
+  }
+}
