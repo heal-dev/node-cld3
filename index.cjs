@@ -1,6 +1,3 @@
-/***
-* Copyright (c) 2023-2023 - All Rights Reserved
-*/
 const os = require('os');
 const path = require('path');
 

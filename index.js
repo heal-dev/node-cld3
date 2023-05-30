@@ -1,6 +1,3 @@
-/***
-* Copyright (c) Qualitilt 2023-2023 - All Rights Reserved
-*/
 import cld3 from './index.cjs';
 
 /**

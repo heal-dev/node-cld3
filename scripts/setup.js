@@ -1,6 +1,3 @@
-/***
-* Copyright (c) Qualitilt 2023-2023 - All Rights Reserved
-*/
 import { execSync } from 'node:child_process';
 import path from 'node:path';
 
