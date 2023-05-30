@@ -3,11 +3,15 @@ FROM node:20
 
 # Install the necessary dependencies
 RUN apt-get update && apt-get install -y \
-    build-essential \
+    clang \
     git \
     cmake \
     protobuf-compiler \
     libprotobuf-dev
+
+# Set Clang as the default compiler
+ENV CC=/usr/bin/clang
+ENV CXX=/usr/bin/clang++
 
 WORKDIR /build
 COPY . .
