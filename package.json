@@ -10,7 +10,6 @@
     "test": "node --test"
   },
   "license": "MIT",
-  "private": true,
   "dependencies": {
     "bindings": "^1.5.0",
     "cmake-js": "^7.2.1",
