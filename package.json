@@ -1,11 +1,11 @@
 {
-  "name": "node-cld3",
-  "version": "1.0.0",
+  "name": "cld3",
+  "description": "Unofficial Node.js bindings for Compact Language Detector v3 (CLD3)",
+  "version": "1.1.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "setup": "node scripts/setup.js",
-    "install": "npm run setup && npm run rebuild",
     "rebuild": "cmake-js rebuild",
     "test": "node --test"
   },
@@ -14,5 +14,11 @@
     "bindings": "^1.5.0",
     "cmake-js": "^7.2.1",
     "node-addon-api": "^6.1.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "author": "",
+  "repository": "https://github.com/joinmyia/node-cld3"
 }
