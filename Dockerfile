@@ -17,4 +17,4 @@ WORKDIR /build
 COPY . .
 
 RUN npm install
-CMD ["npm", "run", "test"]
+RUN npm run test
