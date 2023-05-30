@@ -17,4 +17,5 @@ WORKDIR /build
 COPY . .
 
 RUN npm install
-RUN npm run test
+RUN npm run setup
+RUN npm run rebuild
