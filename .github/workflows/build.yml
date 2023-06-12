@@ -27,29 +27,24 @@ jobs:
             echo "arch=darwin-x64" >> $GITHUB_ENV
           fi
   
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Install Protoc
-        uses: arduino/setup-protoc@v2
-        with:
-          version: "23.x"
-
       - name: Install build dependencies (MacOS)
         if: ${{ runner.os == 'macOS' }}
-        run: brew install llvm cmake
+        run: brew install llvm cmake protobuf
 
       - name: Install build dependencies (Linux)
         if: ${{ runner.os == 'Linux' }}
         run: |
           sudo apt-get update
-          sudo apt-get install -y clang cmake
+          sudo apt-get install -y clang cmake libprotobuf-dev protobuf-compiler
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 20
-      
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Install and build
         run:  npm install
 
