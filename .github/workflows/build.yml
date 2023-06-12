@@ -16,10 +16,11 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
+          - macos-latest
         
     steps:
       - name: Set architecture
-        if: ${{ runner.os == 'macos-latest' || runner.os == 'ubuntu-latest' }}
+        if: ${{ runner.os == 'Linux' }}
         run: echo "::set-output name=arch::linux-x64"
 
       - name: Use Variable
