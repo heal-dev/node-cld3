@@ -35,12 +35,12 @@ jobs:
         with:
           version: "23.x"
 
-      - name: Install Clang
-        if: startsWith(matrix.os, 'macos-')
+      - name: Install build dependencies (MacOS)
+        if: ${{ runner.os == 'macOS' }}
         run: brew install llvm cmake
 
-      - name: Install Clang
-        if: startsWith(matrix.os, 'ubuntu-')
+      - name: Install build dependencies (Linux)
+        if: ${{ runner.os == 'Linux' }}
         run: |
           sudo apt-get update
           sudo apt-get install -y clang cmake
