@@ -1,0 +1,61 @@
+name: Build Node.js Bindings
+
+on:
+  push:
+    branches:
+      - main
+      - build
+    tags:
+      - '*'
+      
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+        
+    steps:
+      - name: Set architecture
+        if: ${{ runner.os == 'macos-latest' || runner.os == 'ubuntu-latest' }}
+        run: echo "::set-output name=arch::linux-x64"
+
+      - name: Use Variable
+        env:
+          ARCH: ${{ steps.set-variable.outputs.arch }}
+        run: echo $ARCH
+
+      # - name: Checkout repository
+      #   uses: actions/checkout@v2
+
+      # - name: Install Protoc
+      #   uses: arduino/setup-protoc@v2
+      #   with:
+      #     version: "23.x"
+
+      # - name: Install Clang
+      #   if: startsWith(matrix.os, 'macos-')
+      #   run: brew install llvm cmake
+
+      # - name: Install Clang
+      #   if: startsWith(matrix.os, 'ubuntu-')
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get install -y clang cmake
+
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: 20
+      
+      # - name: Install and build
+      #   run:  npm install
+
+      # - name: Upload artifacts
+      #   uses: actions/upload-artifact@v2
+      #   if: ${{ runner.os == 'macos-latest' || runner.os == 'ubuntu-latest' }}
+      #   with:
+      #     name: cld3-${{ runner.os }}.node
+      #     path: build/Release/cld3.node

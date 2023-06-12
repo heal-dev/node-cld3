@@ -1,10 +1,13 @@
+/***
+* Copyright (c) Myia 2023-2023 - All Rights Reserved
+*/
 import Assert from 'node:assert';
 import { it, describe } from 'node:test';
 
-import { getLanguage } from '../index.js';
+import { getLanguages } from '../index.js';
 
 
-describe('getLanguage', () => {
+describe('getLanguages', () => {
 
     const samples = [
         // {
@@ -51,7 +54,7 @@ describe('getLanguage', () => {
 
     for (const sample of samples) {
         it(`should return ${sample.expected} for "${sample.text}"`, () => {
-            const result = getLanguage(sample.text);
+            const result = getLanguages(sample.text);
             if (sample.expected === null) {
                 Assert.strictEqual(result, null);
                 return;
