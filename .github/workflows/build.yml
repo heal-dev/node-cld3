@@ -21,15 +21,14 @@ jobs:
     steps:
       - name: Set architecture
         if: ${{ runner.os == 'Linux' }}
-        run: echo "::set-output name=arch::linux-x64"
+        run: echo "arch=linux-x64" >> $GITHUB_ENV
+        if: ${{ runner.os == 'macOS' }}
+        run: echo "arch=darwin-x64" >> $GITHUB_ENV
 
       - name: Use Variable
-        env:
-          ARCH: ${{ steps.set-variable.outputs.arch }}
         run: |
-          echo $ARCH
-          echo ${{ runner.os }}
-
+          echo "${{ env.arch }}"
+  
       # - name: Checkout repository
       #   uses: actions/checkout@v2
 
