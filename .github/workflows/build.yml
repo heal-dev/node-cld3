@@ -25,7 +25,9 @@ jobs:
       - name: Use Variable
         env:
           ARCH: ${{ steps.set-variable.outputs.arch }}
-        run: echo $ARCH
+        run: |
+          echo $ARCH
+          echo ${{ runner.os }}
 
       # - name: Checkout repository
       #   uses: actions/checkout@v2
