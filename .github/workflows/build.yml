@@ -26,40 +26,35 @@ jobs:
           else
             echo "arch=darwin-x64" >> $GITHUB_ENV
           fi
-
-      - name: Use Variable
-        run: |
-          echo "${{ env.arch }}"
   
-      # - name: Checkout repository
-      #   uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      # - name: Install Protoc
-      #   uses: arduino/setup-protoc@v2
-      #   with:
-      #     version: "23.x"
+      - name: Install Protoc
+        uses: arduino/setup-protoc@v2
+        with:
+          version: "23.x"
 
-      # - name: Install Clang
-      #   if: startsWith(matrix.os, 'macos-')
-      #   run: brew install llvm cmake
+      - name: Install Clang
+        if: startsWith(matrix.os, 'macos-')
+        run: brew install llvm cmake
 
-      # - name: Install Clang
-      #   if: startsWith(matrix.os, 'ubuntu-')
-      #   run: |
-      #     sudo apt-get update
-      #     sudo apt-get install -y clang cmake
+      - name: Install Clang
+        if: startsWith(matrix.os, 'ubuntu-')
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang cmake
 
-      # - name: Setup Node.js
-      #   uses: actions/setup-node@v2
-      #   with:
-      #     node-version: 20
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
       
-      # - name: Install and build
-      #   run:  npm install
+      - name: Install and build
+        run:  npm install
 
-      # - name: Upload artifacts
-      #   uses: actions/upload-artifact@v2
-      #   if: ${{ runner.os == 'macos-latest' || runner.os == 'ubuntu-latest' }}
-      #   with:
-      #     name: cld3-${{ runner.os }}.node
-      #     path: build/Release/cld3.node
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: cld3-${{ env.arch }}.node
+          path: build/Release/cld3.node
