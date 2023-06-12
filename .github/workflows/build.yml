@@ -20,10 +20,12 @@ jobs:
         
     steps:
       - name: Set architecture
-        if: ${{ runner.os == 'Linux' }}
-        run: echo "arch=linux-x64" >> $GITHUB_ENV
-        if: ${{ runner.os == 'macOS' }}
-        run: echo "arch=darwin-x64" >> $GITHUB_ENV
+        run: |
+          if [ "${{ runner.os }}" == "Linux" ]; then
+            echo "arch=linux-x64" >> $GITHUB_ENV
+          else
+            echo "arch=darwin-x64" >> $GITHUB_ENV
+          fi
 
       - name: Use Variable
         run: |
