@@ -1,7 +1,7 @@
 /***
  * Copyright (c) Myia 2023-2023 - All Rights Reserved
  */
-import cld3 from "./index.cjs";
+import cld3 from "./cld3.cjs";
 
 /**
  * Identify the languages in a text using the Compact Language Detector v3 neural network.

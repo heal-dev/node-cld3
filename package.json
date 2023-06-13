@@ -5,10 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "setup": "node scripts/setup.js",
+    "pre-build": "node scripts/pre-build.js",
     "post-build": "node scripts/post-build.js",
-    "install": "npm run setup && npm run build && npm run post-build",
-    "build": "CXX=/usr/bin/clang++ CC=/usr/bin/clang cmake-js rebuild",
+    "build": "npm run pre-build && npm run cmake && npm run post-build",
+    "cmake": "CXX=/usr/bin/clang++ CC=/usr/bin/clang cmake-js rebuild",
     "test": "node --test"
   },
   "license": "MIT",
@@ -16,5 +16,10 @@
     "bindings": "^1.5.0",
     "cmake-js": "^7.2.1",
     "node-addon-api": "^6.1.0"
-  }
+  },
+  "files": [
+    "index.js",
+    "cld3.cjs",
+    "addons/*.node"
+  ]
 }
