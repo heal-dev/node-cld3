@@ -52,7 +52,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: cld3-${{ env.arch }}.node
-          path: build/Release/cld3.node
+          path: addons/cld3-${{ env.arch }}.node
 
   publish:
     needs: build
