@@ -8,12 +8,14 @@ This is an unofficial wrapper around the CLD3 library. It is not affiliated with
 
 ## Usage
 
-Installation: `npm install node-cld3` 
+Installation: `npm install node-cld3`
 
 ```js
 import { getLanguages } from "node-cld3";
 
-const langs = getLanguages("This piece of text is in English. Този текст е на Български.");
+const langs = getLanguages(
+  "This piece of text is in English. Този текст е на Български."
+);
 
 console.log(langs);
 /**
@@ -36,9 +38,10 @@ console.log(langs);
 
 ## Local development
 
-1. Ensure you are using Node.js >= 18 and have the protobuf, clang and cmake installed 
-2. Install and compile `npm install`
-3. Run the tests `npm run test`
+1. Ensure you are using Node.js >= 18 and have the protobuf, clang and cmake installed
+2. Install dependencies `npm install`
+3. Compile bindings `npm run build`
+4. Run the tests `npm run test`
 
 or use Docker
 

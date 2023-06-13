@@ -12,5 +12,5 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /build
 COPY . .
 
-RUN npm install
+RUN npm install && npm run build
 CMD ["npm", "run", "test"]
