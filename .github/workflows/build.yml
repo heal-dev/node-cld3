@@ -65,13 +65,13 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: cld3-linux-x64.node
-          path: addons/cld3-linux-x64.node
+          path: addons/
 
       - name: Download Macos bindings
         uses: actions/download-artifact@v2
         with:
           name: cld3-darwin-x64.node
-          path: addons/cld3-darwin-x64.node
+          path: addons/
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
