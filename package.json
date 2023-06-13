@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "setup": "node scripts/setup.js",
-    "install": "npm run setup && npm run rebuild",
-    "rebuild": "CXX=/usr/bin/clang++ CC=/usr/bin/clang cmake-js rebuild",
+    "post-build": "node scripts/post-build.js",
+    "install": "npm run setup && npm run build && npm run post-build",
+    "build": "CXX=/usr/bin/clang++ CC=/usr/bin/clang cmake-js rebuild",
     "test": "node --test"
   },
   "license": "MIT",
