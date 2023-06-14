@@ -1,3 +1,6 @@
+/**
+ * Copyright (c) Myia 2023-2023 - All Rights Reserved
+ */
 module.exports = {
   parser: '@typescript-eslint/parser',
   ignorePatterns: ['venv/', 'CMakeFiles/'],
@@ -42,7 +45,7 @@ module.exports = {
       'error',
       'block',
       [
-        `/**\n * Copyright (c) Myia 2023-${new Date().getFullYear()} - All Rights Reserved\n */`,
+        `*\n * Copyright (c) Myia 2023-${new Date().getFullYear()} - All Rights Reserved\n `,
       ],
     ],
     'unused-imports/no-unused-imports': 'error',

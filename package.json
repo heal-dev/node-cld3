@@ -9,7 +9,7 @@
     "post-build": "node scripts/post-build.js",
     "build": "npm run pre-build && npm run cmake && npm run post-build",
     "cmake": "CXX=/usr/bin/clang++ CC=/usr/bin/clang cmake-js rebuild",
-    "lint": "eslint --config eslintrc.cjs --ext .js,.cjs --fix .",
+    "lint": "eslint --config eslintrc.cjs --ext .js,.cjs .",
     "test": "node --test"
   },
   "license": "MIT",
