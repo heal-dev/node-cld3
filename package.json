@@ -1,7 +1,7 @@
 {
   "name": "node-cld3",
   "description": "Unofficial Node.js bindings for Compact Language Detector v3 (CLD3)",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {

@@ -2,3 +2,4 @@ cld3/
 build/
 node_modules/
 .idea/
+addons/*.node

@@ -14,14 +14,14 @@ Installation: `npm install node-cld3`
 import { getLanguages } from "node-cld3";
 
 const langs = getLanguages(
-  "This piece of text is in English. Този текст е на Български."
+  "This piece of text is in English. Гэты тэкст на беларускай мове."
 );
 
 console.log(langs);
 /**
  * [
  *  {
- *      language: 'bg',
+ *      language: 'be',
  *      probability: 0.9173873066902161,
  *      is_reliable: true,
  *      proportion: 0.5853658318519592
