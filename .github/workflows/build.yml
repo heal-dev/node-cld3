@@ -1,6 +1,7 @@
 name: Build Node.js Bindings
 
 on:
+  pull_request:
   push:
     tags:
       - "*"
