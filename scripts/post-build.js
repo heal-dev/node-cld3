@@ -1,10 +1,6 @@
-/***
- * Copyright (c) Myia 2023-2023 - All Rights Reserved
- */
-
-import os from 'os';
-import path from 'path';
 import { execSync } from 'node:child_process';
+import os from 'node:os';
+import path from 'node:path';
 
 const __dirname = new URL('.', import.meta.url).pathname;
 const root = path.join(__dirname, '..');

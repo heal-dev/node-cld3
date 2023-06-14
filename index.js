@@ -1,6 +1,3 @@
-/***
- * Copyright (c) Myia 2023-2023 - All Rights Reserved
- */
 import cld3 from './cld3.cjs';
 
 /**
