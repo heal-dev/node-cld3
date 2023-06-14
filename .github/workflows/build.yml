@@ -2,9 +2,6 @@ name: Build Node.js Bindings
 
 on:
   push:
-    branches:
-      - main
-      - build
     tags:
       - "*"
 
@@ -47,6 +44,9 @@ jobs:
 
       - name: Install and build
         run: npm install && npm run build
+
+      - name: Run tests
+        run: npm run test
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2

@@ -9,10 +9,10 @@ import cld3 from "./cld3.cjs";
  * Identification is less reliable on short texts.
  *
  * @example
- * getLanguages('This piece of text is in English. Този текст е на Български.');
+ * getLanguages('This piece of text is in English. Гэты тэкст на беларускай мове.');
  * [
  *  {
- *      language: 'bg',
+ *      language: 'be',
  *      probability: 0.9173873066902161,
  *      is_reliable: true,
  *      proportion: 0.5853658318519592
