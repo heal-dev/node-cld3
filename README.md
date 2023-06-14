@@ -11,10 +11,10 @@ This is an unofficial wrapper around the CLD3 library. It is not affiliated with
 Installation: `npm install node-cld3`
 
 ```js
-import { getLanguages } from "node-cld3";
+import { getLanguages } from 'node-cld3';
 
 const langs = getLanguages(
-  "This piece of text is in English. Гэты тэкст на беларускай мове."
+  'This piece of text is in English. Гэты тэкст на беларускай мове.'
 );
 
 console.log(langs);

@@ -1,7 +1,7 @@
 /***
  * Copyright (c) Myia 2023-2023 - All Rights Reserved
  */
-import cld3 from "./cld3.cjs";
+import cld3 from './cld3.cjs';
 
 /**
  * Identify the languages in a text using the Compact Language Detector v3 neural network.
@@ -31,7 +31,7 @@ import cld3 from "./cld3.cjs";
 export const getLanguages = function (txt) {
   const oracleResult = cld3.getLanguages(txt);
   const bestResults = oracleResult.filter(
-    ({ language, is_reliable }) => language !== "und" && is_reliable
+    ({ language, is_reliable }) => language !== 'und' && is_reliable
   );
 
   if (bestResults.length > 0) {
@@ -40,7 +40,7 @@ export const getLanguages = function (txt) {
 
   for (const result of oracleResult) {
     if (
-      result.language !== "und" &&
+      result.language !== 'und' &&
       result.probability > 0.5 &&
       result.proportion === 1
     ) {
