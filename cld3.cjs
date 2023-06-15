@@ -7,10 +7,11 @@ const path = require('path');
 let file = '';
 switch (os.platform()) {
   case 'darwin':
-    file = 'cld3-darwin-x64.node';
+    file = `cld3-darwin-${os.arch()}.node`;
     break;
+
   case 'linux':
-    file = 'cld3-linux-x64.node';
+    file = `cld3-linux-${os.arch()}.node`;
     break;
 }
 if (!file) {
