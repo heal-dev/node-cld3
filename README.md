@@ -11,7 +11,7 @@ This is an unofficial wrapper around the CLD3 library. It is not affiliated with
 Installation: `npm install cld3`
 
 ```js
-import { getLanguages } from 'node-cld3';
+import { getLanguages } from 'cld3';
 
 const langs = getLanguages(
   'This piece of text is in English. Гэты тэкст на беларускай мове.'
