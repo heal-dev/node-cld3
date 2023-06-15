@@ -8,7 +8,7 @@ This is an unofficial wrapper around the CLD3 library. It is not affiliated with
 
 ## Usage
 
-Installation: `npm install node-cld3`
+Installation: `npm install cld3`
 
 ```js
 import { getLanguages } from 'node-cld3';
