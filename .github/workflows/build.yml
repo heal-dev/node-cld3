@@ -1,0 +1,87 @@
+name: Build Node.js Bindings
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+
+    steps:
+      - name: Set architecture
+        run: |
+          if [ "${{ runner.os }}" == "Linux" ]; then
+            echo "arch=linux-x64" >> $GITHUB_ENV
+          else
+            echo "arch=darwin-x64" >> $GITHUB_ENV
+          fi
+
+      - name: Install build dependencies (MacOS)
+        if: ${{ runner.os == 'macOS' }}
+        run: brew install llvm cmake protobuf
+
+      - name: Install build dependencies (Linux)
+        if: ${{ runner.os == 'Linux' }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang cmake libprotobuf-dev protobuf-compiler
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install and build
+        run: npm install && npm run build
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: cld3-${{ env.arch }}.node
+          path: addons/cld3-${{ env.arch }}.node
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Download Linux bindings
+        uses: actions/download-artifact@v2
+        with:
+          name: cld3-linux-x64.node
+          path: addons/
+
+      - name: Download Macos bindings
+        uses: actions/download-artifact@v2
+        with:
+          name: cld3-darwin-x64.node
+          path: addons/
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: Install NPM dependencies
+        run: npm install
+
+      - name: Publish to NPM
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

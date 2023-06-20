@@ -1,12 +1,15 @@
 {
   "name": "cld3",
   "description": "Unofficial Node.js bindings for Compact Language Detector v3 (CLD3)",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "setup": "node scripts/setup.js",
-    "rebuild": "cmake-js rebuild",
+    "pre-build": "node scripts/pre-build.js",
+    "post-build": "node scripts/post-build.js",
+    "build": "npm run pre-build && npm run cmake && npm run post-build",
+    "cmake": "CXX=/usr/bin/clang++ CC=/usr/bin/clang cmake-js rebuild",
+    "lint": "eslint --config eslintrc.cjs --ext .js,.cjs .",
     "test": "node --test"
   },
   "license": "MIT",
@@ -15,10 +18,19 @@
     "cmake-js": "^7.2.1",
     "node-addon-api": "^6.1.0"
   },
-  "directories": {
-    "test": "test"
+  "devDependencies": {
+    "@hapi/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^5.22.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-header": "^3.1.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-sort-class-members": "^1.16.0",
+    "eslint-plugin-unused-imports": "^2.0.0"
   },
-  "devDependencies": {},
-  "author": "",
-  "repository": "https://github.com/joinmyia/node-cld3"
+  "files": [
+    "index.js",
+    "cld3.cjs",
+    "addons/*.node"
+  ]
 }
