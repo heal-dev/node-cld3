@@ -14,14 +14,17 @@ jobs:
         os:
           - ubuntu-latest
           - macos-latest
+          - macos-13-xlarge
 
     steps:
       - name: Set architecture
         run: |
-          if [ "${{ runner.os }}" == "Linux" ]; then
+          if [[ "${{ runner.os }}" == "Linux" && "${{ runner.arch }}" == "X64" ]]; then
             echo "arch=linux-x64" >> $GITHUB_ENV
-          else
+          elif [[ "${{ runner.os }}" == "macOS" && "${{ runner.arch }}" == "X64" ]]; then
             echo "arch=darwin-x64" >> $GITHUB_ENV
+          elif [[ "${{ runner.os }}" == "macOS" && "${{ runner.arch }}" == "ARM64" ]]; then
+            echo "arch=darwin-arm64" >> $GITHUB_ENV
           fi
 
       - name: Install build dependencies (MacOS)
