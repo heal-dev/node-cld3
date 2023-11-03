@@ -66,16 +66,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download Linux bindings
+      - name: Download bindings
         uses: actions/download-artifact@v3
         with:
-          name: cld3-linux-x64.node
-          path: addons/
-
-      - name: Download Macos bindings
-        uses: actions/download-artifact@v3
-        with:
-          name: cld3-darwin-x64.node
           path: addons/
 
       - name: Setup Node.js
