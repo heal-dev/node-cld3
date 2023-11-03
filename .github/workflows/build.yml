@@ -37,12 +37,12 @@ jobs:
           sudo apt-get install -y clang cmake libprotobuf-dev protobuf-compiler
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 20
 
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install and build
         run: npm install && npm run build
@@ -51,7 +51,7 @@ jobs:
         run: npm run test
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: cld3-${{ env.arch }}.node
           path: addons/cld3-${{ env.arch }}.node
@@ -61,24 +61,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Download Linux bindings
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: cld3-linux-x64.node
           path: addons/
 
       - name: Download Macos bindings
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: cld3-darwin-x64.node
           path: addons/
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 20
+          registry-url: https://registry.npmjs.org
 
       - name: Install NPM dependencies
         run: npm install
