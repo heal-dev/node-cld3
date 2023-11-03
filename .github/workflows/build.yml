@@ -26,7 +26,7 @@ jobs:
 
       - name: Install build dependencies (MacOS)
         if: ${{ runner.os == 'macOS' }}
-        run: brew install llvm cmake protobuf
+        run: brew install llvm cmake protobuf@21
 
       - name: Install build dependencies (Linux)
         if: ${{ runner.os == 'Linux' }}
